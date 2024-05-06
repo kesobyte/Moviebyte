@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Moviebyte/static/css/main.e0c3df23.css",
-    "main.js": "/Moviebyte/static/js/main.4fb1d74a.js",
+    "main.js": "/Moviebyte/static/js/main.0572d0fa.js",
     "index.html": "/Moviebyte/index.html",
     "static/media/search.svg": "/Moviebyte/static/media/search.92baeacf3b9019aa00acb6790dc585f9.svg",
     "main.e0c3df23.css.map": "/Moviebyte/static/css/main.e0c3df23.css.map",
-    "main.4fb1d74a.js.map": "/Moviebyte/static/js/main.4fb1d74a.js.map"
+    "main.0572d0fa.js.map": "/Moviebyte/static/js/main.0572d0fa.js.map"
   },
   "entrypoints": [
     "static/css/main.e0c3df23.css",
-    "static/js/main.4fb1d74a.js"
+    "static/js/main.0572d0fa.js"
   ]
 }
