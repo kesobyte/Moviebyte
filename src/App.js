@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import SearchIcon from "./search.svg";
-import MovieCard from "./MovieCard";
+import { useEffect, useState } from 'react';
+import './App.css';
+import SearchIcon from './search.svg';
+import MovieCard from './MovieCard';
 
-const API_KEY = "dbf2c68a";
-const API_URL = `http://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}`;
+const API_KEY = 'dbf2c68a';
+const API_URL = `https://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}`;
 
 const App = () => {
   const [movies, setMovies] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
 
-  const searchMovies = async (title) => {
+  const searchMovies = async title => {
     const response = await fetch(`${API_URL}&s=${title}`);
     const data = await response.json();
 
@@ -18,8 +18,18 @@ const App = () => {
   };
 
   useEffect(() => {
-    searchMovies("");
+    searchMovies('');
   }, []);
+
+  const handleSearch = () => {
+    searchMovies(searchTerm);
+  };
+
+  const handleKeyPress = e => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
 
   return (
     <div className="app">
@@ -29,22 +39,17 @@ const App = () => {
         <input
           placeholder="Search for movies"
           value={searchTerm}
-          onChange={(e) => {
+          onChange={e => {
             setSearchTerm(e.target.value);
           }}
+          onKeyDown={handleKeyPress}
         />
-        <img
-          src={SearchIcon}
-          alt="search"
-          onClick={() => {
-            searchMovies(searchTerm);
-          }}
-        />
+        <img src={SearchIcon} alt="search" onClick={handleSearch} />
       </div>
 
       {movies?.length > 0 ? (
         <div className="container">
-          {movies.map((movie) => (
+          {movies.map(movie => (
             <MovieCard movie={movie} />
           ))}
         </div>
